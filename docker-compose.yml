@@ -46,6 +46,10 @@ services:
     dns:
       - 127.0.0.1
       - 172.18.0.2
+    # Recommended but not required (DHCP needs NET_ADMIN)
+    # https://github.com/pi-hole/docker-pi-hole#note-on-capabilities
+    cap_add:
+      - NET_ADMIN
     depends_on:
       - cloudflared
 
