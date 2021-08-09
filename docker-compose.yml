@@ -51,6 +51,15 @@ services:
     depends_on:
       - cloudflared
 
+  homeassistant:
+    container_name: homeassistant
+    image: "ghcr.io/home-assistant/raspberrypi4-homeassistant:stable"
+    volumes:
+      - /opt/homeassistant/config:/config
+      - /etc/localtime:/etc/localtime:ro
+    restart: unless-stopped
+    network_mode: host
+    
 #  pihole-exporter:
 #    build:
 #      context: ./pihole-exporter
