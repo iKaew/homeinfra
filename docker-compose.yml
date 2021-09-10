@@ -53,7 +53,7 @@ services:
 
   homeassistant:
     container_name: homeassistant
-    image: "ghcr.io/home-assistant/raspberrypi4-homeassistant:stable"
+    image: "ghcr.io/home-assistant/raspberrypi4-homeassistant:2021.9.5"
     volumes:
       - /opt/homeassistant/config:/config
       - /etc/localtime:/etc/localtime:ro
