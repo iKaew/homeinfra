@@ -1,7 +1,7 @@
 # Home infra
 To create a pi-hole with cloudflared docker containers for more secure home network
 
-## Pi-hole Installation 
+## Installation 
 
 - Setup Raspberry Pi 
 - Enable SSH
