@@ -59,6 +59,17 @@ services:
       - /etc/localtime:/etc/localtime:ro
     restart: unless-stopped
     network_mode: host
+
+  
+  argo-tunnel:
+    build: 
+      dockerfile: ./cloudflared-tunnel/Dockerfile-2021.9.0
+    image: argo-tunnel:2021.9.0
+    volumes:
+      - /opt/argo-tunnel/etc-cloudflared:/etc/cloudflared
+    environment:
+      - TZ=Asia/Bangkok
+    network_mode: host
     
 #  pihole-exporter:
 #    build:

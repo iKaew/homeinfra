@@ -1,0 +1,18 @@
+FROM alpine:3
+
+ARG CLOUDFLARED_VERSION=2021.9.0
+ARG CLOUDFLARED_BIN=https://github.com/cloudflare/cloudflared/releases/download
+
+RUN \
+  set -x && \
+  apk update && \
+  apk upgrade && \
+  apk add tzdata ca-certificates libcap bind-tools curl libc6-compat && \
+  curl -L -o /usr/local/bin/cloudflared ${CLOUDFLARED_BIN}/${CLOUDFLARED_VERSION}/cloudflared-linux-arm && \
+  chmod ugo+x /usr/local/bin/cloudflared && \
+  setcap 'cap_net_bind_service=+ep' /usr/local/bin/cloudflared 
+
+USER nobody
+
+ENTRYPOINT ["cloudflared", "tunnel", "run"]
+
