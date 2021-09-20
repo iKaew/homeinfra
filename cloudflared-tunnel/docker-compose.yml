@@ -1,0 +1,13 @@
+version: '3.8'
+services:
+  argo:
+    container_name: homeassistant-tunnel
+    build: 
+      dockerfile: ./Dockerfile-2021.9.0
+    image: cloudflared-tunnel:2021.9.0
+    #volumes:
+    #  - /opt/homeassistant-tunnel/argo-config:/root/.cloudflared/
+    #  - /opt/homeassistant-tunnel/nginx-config:/etc/nginx/conf.d/
+    environment:
+      - TZ=Asia/Bangkok
+    network_mode: host

@@ -15,8 +15,7 @@ RUN \
 
 STOPSIGNAL SIGTERM
 
-COPY ./run.sh /
-RUN chmod +x /run.sh
+COPY ./cloudflared-config/ /root/.cloudflared/
 
-ENTRYPOINT ["/run.sh"]
+ENTRYPOINT ["cloudflared", "tunnel", "run"]
 
