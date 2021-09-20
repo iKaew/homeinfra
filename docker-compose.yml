@@ -64,7 +64,8 @@ services:
   argo-tunnel:
     container_name: argo-tunnel
     build: 
-      dockerfile: ./cloudflared-tunnel/Dockerfile-2021.9.0
+      context: /opt/homeinfra/cloudflared-tunnel
+      dockerfile: Dockerfile-2021.9.0
     image: cloudflared-tunnel:2021.9.0
     volumes:
       - /opt/argo-tunnel/etc-cloudflared:/etc/cloudflared
