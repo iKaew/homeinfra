@@ -12,7 +12,9 @@ RUN \
   chmod ugo+x /usr/local/bin/cloudflared && \
   setcap 'cap_net_bind_service=+ep' /usr/local/bin/cloudflared 
 
-USER nobody
 
-ENTRYPOINT ["cloudflared", "tunnel", "run"]
+STOPSIGNAL SIGTERM
+
+COPY ./run.sh /
+ENTRYPOINT ["/run.sh"]
 
