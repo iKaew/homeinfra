@@ -71,6 +71,7 @@ services:
       - /opt/argo-tunnel/etc-cloudflared:/root/.cloudflared/
     environment:
       - TZ=Asia/Bangkok
+    restart: unless-stopped
     network_mode: host
     
 #  pihole-exporter:
