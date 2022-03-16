@@ -56,6 +56,7 @@ services:
     image: "ghcr.io/home-assistant/raspberrypi4-homeassistant:2022.2.9"
     volumes:
       - /opt/homeassistant/config:/config
+      - /opt/homeassistant/data:/etc/ha-data
       - /etc/localtime:/etc/localtime:ro
     restart: unless-stopped
     network_mode: host
