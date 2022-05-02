@@ -53,7 +53,7 @@ services:
 
   homeassistant:
     container_name: homeassistant
-    image: "ghcr.io/home-assistant/raspberrypi4-homeassistant:2022.3.5"
+    image: "ghcr.io/home-assistant/raspberrypi4-homeassistant:2022.4.7"
     volumes:
       - /opt/homeassistant/config:/config
       - /opt/homeassistant/data:/etc/ha-data
